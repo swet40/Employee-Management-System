@@ -42,10 +42,17 @@ Modern UI with authentication, dashboards, and real-time leave updates.
 git clone https://github.com/your-username/Employee-Management-System.git
 
 ```
-## 🔧 2️⃣ Backend Setup
+## 2. Backend Setup
 
 ```sh
 cd backend
 npm install
 ```
 
+### Create a .env file
+
+```sh
+PORT=5000
+MONGO_URI=your-mongodb-url
+JWT_SECRET=your-secret
+```
