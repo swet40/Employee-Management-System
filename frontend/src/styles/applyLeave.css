@@ -1,0 +1,50 @@
+.apply-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .apply-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    }
+
+    .apply-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    }
+
+    .apply-input,
+    .apply-select,
+    .apply-textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    }
+
+    .apply-textarea {
+    height: 120px;
+    resize: none;
+    }
+
+    .apply-button {
+    padding: 12px;
+    background: #007bff;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    }
+
+    .apply-button:hover {
+    background: #005fcc;
+}

@@ -1,0 +1,57 @@
+    .requests-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .requests-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    }
+
+    .request-card {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    }
+
+    .request-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    }
+
+    .status {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    }
+
+    .status.pending {
+    background: #ffcc00;
+    }
+
+    .status.approved {
+    background: #28a745;
+    color: white;
+    }
+
+    .status.rejected {
+    background: #dc3545;
+    color: white;
+    }
+
+    .cancel-btn {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}

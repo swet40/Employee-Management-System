@@ -1,0 +1,43 @@
+.pending-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .pending-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    }
+
+    .pending-card {
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    }
+
+    .action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    }
+
+    .approve-btn {
+    background: #28a745;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    }
+
+    .reject-btn {
+    background: #dc3545;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+}

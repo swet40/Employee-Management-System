@@ -1,0 +1,43 @@
+.dashboard-container {
+    padding: 30px;
+    }
+
+    .dashboard-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    }
+
+    .balance-box, .stats-box {
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    }
+
+    .balance-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    }
+
+    .dashboard-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    }
+
+    .btn {
+    padding: 12px 20px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    display: inline-block;
+    }
+
+    .btn-secondary {
+    background: #28a745;
+}

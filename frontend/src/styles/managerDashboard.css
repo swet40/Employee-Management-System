@@ -1,0 +1,44 @@
+.manager-dashboard {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .manager-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    }
+
+    .stats-box {
+    padding: 15px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    }
+
+    .stats-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    }
+
+    .manager-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    }
+
+    .btn {
+    padding: 12px 20px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    }
+
+    .btn.green {
+    background: #28a745;
+}
