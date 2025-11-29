@@ -49,10 +49,48 @@ cd backend
 npm install
 ```
 
-### Create a .env file
+-- Create a .env file
 
 ```sh
 PORT=5000
 MONGO_URI=your-mongodb-url
 JWT_SECRET=your-secret
 ```
+
+-- Run backend
+```sh
+npm run dev
+```
+
+## 3. Frontend Setup
+```sh
+cd frontend
+npm install
+```
+
+-- Create a .env file
+```sh
+VITE_API_URL=https://your-backend-url.onrender.com/api
+```
+
+-- Run frontend:
+```sh
+npm run dev
+```
+
+##  Screenshots
+
+###  Login Page  
+![Login](./screenshots/login.png)
+
+###  Employee Dashboard  
+![Employee Dashboard](./screenshots/employee_dashboard.png)
+
+###  Apply Leave Page  
+![Apply Leave](./screenshots/apply_leave.png)
+
+###  My Requests  
+![My Requests](./screenshots/myrequests.png)
+
+###  Manager Dashboard  
+![Manager Dashboard](./screenshots/manage-dashboard.png)
