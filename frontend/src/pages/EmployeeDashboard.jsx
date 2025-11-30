@@ -14,50 +14,46 @@ export default function EmployeeDashboard() {
     }, []);
 
     return (
-        <div className="page-container">
-            <div className="card">
+    <div className="dashboard-wrapper">
+
         <h2 className="dashboard-title">Employee Dashboard</h2>
 
-        {/* Leave Balance Box */}
-        <div className="balance-box">
+        <div className="dashboard-grid">
+
+        {/* LEFT CARD */}
+        <div className="dashboard-card">
             <h3>Leave Balance</h3>
-
             {balance && (
-            <>
-                <div className="balance-row">
-                <span>Sick Leave:</span>
-                <strong>{balance.sickLeave}</strong>
-                </div>
-
-                <div className="balance-row">
-                <span>Casual Leave:</span>
-                <strong>{balance.casualLeave}</strong>
-                </div>
-
-                <div className="balance-row">
-                <span>Vacation Leave:</span>
-                <strong>{balance.vacation}</strong>
-                </div>
-            </>
+            <ul className="dashboard-list">
+                <li>Sick Leave: <strong>{balance.sickLeave}</strong></li>
+                <li>Casual Leave: <strong>{balance.casualLeave}</strong></li>
+                <li>Vacation Leave: <strong>{balance.vacation}</strong></li>
+            </ul>
             )}
         </div>
 
-        {/* Stats */}
-        <div className="stats-box">
+        {/* RIGHT CARD */}
+        <div className="dashboard-card">
             <h3>Request Stats</h3>
-
-            <p>Total Requests: <strong>{myRequests.length}</strong></p>
-            <p>Approved: <strong>{myRequests.filter(r => r.status === "approved").length}</strong></p>
-            <p>Pending: <strong>{myRequests.filter(r => r.status === "pending").length}</strong></p>
-            <p>Rejected: <strong>{myRequests.filter(r => r.status === "rejected").length}</strong></p>
+            {myRequests && (
+            <ul className="dashboard-list">
+                <li>Total Requests: <strong>{myRequests.length}</strong></li>
+                <li>Approved: <strong>{myRequests.filter(r => r.status === "approved").length}</strong></li>
+                <li>Pending: <strong>{myRequests.filter(r => r.status === "pending").length}</strong></li>
+                <li>Rejected: <strong>{myRequests.filter(r => r.status === "rejected").length}</strong></li>
+            </ul>
+            )}
         </div>
 
-        {/* Buttons */}
+        </div>
+
+        {/* BUTTONS */}
         <div className="dashboard-buttons">
-            <Link to="/employee/apply" className="btn">Apply Leave</Link>
-            <Link to="/employee/requests" className="btn btn-secondary">My Requests</Link>
+        <Link to="/employee/apply" className="dashboard-btn">Apply Leave</Link>
+        <Link to="/employee/requests" className="dashboard-btn dashboard-btn-secondary">My Requests</Link>
         </div>
-        </div>
-        </div>
-    );
+
+    </div>
+);
+
 }

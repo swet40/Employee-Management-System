@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getMe } from "./redux/authSlice";
@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 
 import ProtectedRoute from "./components/ProtectedRoute";
-import Navbar from "./components/Navbar";   // <-- IMPORT NAVBAR
+import Navbar from "./components/Navbar";
 
 import EmployeeDashboard from "./pages/EmployeeDashboard";
 import ApplyLeave from "./pages/ApplyLeave";
@@ -17,28 +17,49 @@ import ManagerDashboard from "./pages/ManagerDashboard";
 import PendingRequests from "./pages/PendingRequests";
 import AllRequests from "./pages/AllRequests";
 
-function App() {
+function AppContent() {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
+  const location = useLocation();
+
+  const { user, loading } = useSelector((state) => state.auth);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) dispatch(getMe());
   }, []);
 
-  return (
-    <BrowserRouter>
+  if (loading) return null;
 
-      {/* 🟦 SHOW NAVBAR ONLY WHEN LOGGED IN */}
-      {user && <Navbar />}
+  // Hide navbar on login/register pages
+  const hideNavbar = ["/login", "/register"].includes(location.pathname);
+
+  return (
+    <>
+      {user && !hideNavbar && <Navbar />}
 
       <Routes>
-        {/* Public */}
-        <Route path="/" element={<Navigate to="/login" />} />
+
+        {/* ROOT REDIRECT */}
+        <Route
+          path="/"
+          element={
+            user ? (
+              user.role === "employee" ? (
+                <Navigate to="/employee/dashboard" replace />
+              ) : (
+                <Navigate to="/manager/dashboard" replace />
+              )
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
+
+        {/* Public routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Employee Routes */}
+        {/* Employee */}
         <Route
           path="/employee/dashboard"
           element={
@@ -66,7 +87,7 @@ function App() {
           }
         />
 
-        {/* Manager Routes */}
+        {/* Manager */}
         <Route
           path="/manager/dashboard"
           element={
@@ -93,9 +114,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}

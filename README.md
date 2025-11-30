@@ -89,7 +89,7 @@ npm run dev
 ###  Apply Leave Page  
 ![Apply Leave](./screenshots/apply_leave.png)
 
-###  My Requests  
+###  My Requests 
 ![My Requests](./screenshots/myrequests.png)
 
 ###  Manager Dashboard  

@@ -1,43 +1,89 @@
-.dashboard-container {
-    padding: 30px;
+.dashboard-wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
     }
 
     .dashboard-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 115px;
+    margin-bottom: 25px;
+    color: #1e3a8a;
     }
 
-    .balance-box, .stats-box {
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
+    /* Layout grid */
+    .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
     }
 
-    .balance-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    /* Dashboard card */
+    .dashboard-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
     }
 
+    .dashboard-card:hover {
+    transform: translateY(-4px);
+    }
+
+    /* Card heading */
+    .dashboard-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #1e40af;
+    }
+
+    /* Stats styling */
+    .dashboard-list {
+    list-style: none;
+    line-height: 32px;
+    font-size: 16px;
+    }
+
+    .dashboard-list li strong {
+    color: #1e3a8a;
+    }
+
+    /* Buttons row */
     .dashboard-buttons {
+    margin-top: 35px;
     display: flex;
     gap: 15px;
-    margin-top: 20px;
     }
 
-    .btn {
-    padding: 12px 20px;
-    background: #007bff;
+    /* Reuse global button */
+    .dashboard-btn {
+    padding: 12px 22px;
+    background: #2563eb;
     color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
     text-decoration: none;
-    border-radius: 6px;
-    font-size: 16px;
-    display: inline-block;
+    transition: 0.2s;
     }
 
-    .btn-secondary {
-    background: #28a745;
+    .dashboard-btn:hover {
+    background: #1e40af;
+    }
+
+    .dashboard-btn-secondary {
+    background: #3b82f6;
+    }
+
+    .dashboard-btn-secondary:hover {
+    background: #1d4ed8;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr; /* single column */
+    }
 }

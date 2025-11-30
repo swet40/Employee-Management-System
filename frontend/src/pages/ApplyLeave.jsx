@@ -1,88 +1,54 @@
 import { useState } from "react";
-import API from "../api/axios";
-import { useNavigate } from "react-router-dom";
-import "../styles/applyLeave.css";
+import axios from "../api/axios";
+import "../styles/apply.css";
 
 export default function ApplyLeave() {
-    const [formData, setFormData] = useState({
-        leaveType: "sick",
-        startDate: "",
-        endDate: "",
-        reason: "",
-    });
-
-    const navigate = useNavigate();
-
-    const handleChange = (e) => {
-        setFormData({ 
-        ...formData, 
-        [e.target.name]: e.target.value 
-        });
-    };
+    const [type, setType] = useState("Sick Leave");
+    const [fromDate, setFromDate] = useState("");
+    const [toDate, setToDate] = useState("");
+    const [reason, setReason] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        try {
-        await API.post("/leaves", formData);
-
-        alert("Leave applied successfully!");
-        navigate("/employee/requests");
-
-        } catch (error) {
-        alert(error.response?.data?.message || "Something went wrong");
-        }
+        await axios.post("/leave/apply", { type, fromDate, toDate, reason });
+        alert("Leave request submitted");
     };
 
     return (
-        <div className="page-container">
-            <div className="card">
-        <h2 className="apply-title">Apply for Leave</h2>
+        <div className="apply-container">
+        <div className="apply-card">
+            <h2 className="apply-title">Apply for Leave</h2>
 
-        <form onSubmit={handleSubmit} className="apply-form">
-
-            <select
-            name="leaveType"
-            className="apply-select"
-            onChange={handleChange}
-            value={formData.leaveType}
-            >
-            <option value="sick">Sick Leave</option>
-            <option value="casual">Casual Leave</option>
-            <option value="vacation">Vacation Leave</option>
+            <form className="apply-form" onSubmit={handleSubmit}>
+            <select value={type} onChange={(e) => setType(e.target.value)} className="apply-input">
+                <option value="Sick Leave">Sick Leave</option>
+                <option value="Casual Leave">Casual Leave</option>
+                <option value="Vacation Leave">Vacation Leave</option>
             </select>
 
             <input
-            type="date"
-            name="startDate"
-            className="apply-input"
-            onChange={handleChange}
-            value={formData.startDate}
-            required
+                type="date"
+                className="apply-input"
+                value={fromDate}
+                onChange={(e) => setFromDate(e.target.value)}
             />
 
             <input
-            type="date"
-            name="endDate"
-            className="apply-input"
-            onChange={handleChange}
-            value={formData.endDate}
-            required
+                type="date"
+                className="apply-input"
+                value={toDate}
+                onChange={(e) => setToDate(e.target.value)}
             />
 
             <textarea
-            name="reason"
-            className="apply-textarea"
-            placeholder="Reason for leave..."
-            onChange={handleChange}
-            value={formData.reason}
-            required
+                className="apply-textarea"
+                placeholder="Reason for leave..."
+                value={reason}
+                onChange={(e) => setReason(e.target.value)}
             />
 
-            <button type="submit" className="apply-button">
-            Submit
-            </button>
-        </form>
+            <button className="apply-button" type="submit">Submit</button>
+            </form>
         </div>
         </div>
     );

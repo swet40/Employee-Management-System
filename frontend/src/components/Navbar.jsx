@@ -1,43 +1,39 @@
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/authSlice";
-import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 
 export default function Navbar() {
     const dispatch = useDispatch();
     const { user } = useSelector((state) => state.auth);
 
+    const handleLogout = () => {
+        dispatch(logout());
+    };
+
     return (
-        <div className="navbar">
-        <h3>Leave System</h3>
+        <nav className="navbar">
+        <div className="navbar-title">Leave System</div>
 
         <div className="nav-links">
             {user?.role === "employee" && (
             <>
-                <Link className="nav-link" to="/employee/dashboard">Dashboard</Link>
-                <Link className="nav-link" to="/employee/apply">Apply</Link>
-                <Link className="nav-link" to="/employee/requests">My Requests</Link>
+                <Link to="/employee/dashboard" className="nav-link">Dashboard</Link>
+                <Link to="/employee/apply" className="nav-link">Apply</Link>
+                <Link to="/employee/requests" className="nav-link">My Requests</Link>
             </>
             )}
 
             {user?.role === "manager" && (
             <>
-                <Link className="nav-link" to="/manager/dashboard">Dashboard</Link>
-                <Link className="nav-link" to="/manager/pending">Pending</Link>
-                <Link className="nav-link" to="/manager/all">All Requests</Link>
+                <Link to="/manager/dashboard" className="nav-link">Dashboard</Link>
+                <Link to="/manager/pending" className="nav-link">Pending</Link>
+                <Link to="/manager/all" className="nav-link">All Requests</Link>
             </>
             )}
 
-            <div
-            className="logout-btn"
-            onClick={() => {
-                dispatch(logout());
-                window.location.href = "/login";
-            }}
-            >
-            Logout
-            </div>
+            <button onClick={handleLogout} className="logout-btn">Logout</button>
         </div>
-        </div>
+        </nav>
     );
 }

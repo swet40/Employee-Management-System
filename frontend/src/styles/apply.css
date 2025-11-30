@@ -1,0 +1,66 @@
+.apply-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    }
+
+    .apply-card {
+    width: 450px;
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .apply-title {
+    text-align: center;
+    margin-bottom: 22px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #1d4ed8;
+    }
+
+    .apply-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    }
+
+    .apply-input {
+    padding: 12px;
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    }
+
+    .apply-input:focus,
+    .apply-textarea:focus {
+    border-color: #1d4ed8;
+    box-shadow: 0 0 5px rgba(29, 78, 216, 0.3);
+    }
+
+    .apply-textarea {
+    padding: 12px;
+    height: 110px;
+    border-radius: 8px;
+    border: 1px solid #d6d6d6;
+    resize: none;
+    font-size: 15px;
+    }
+
+    .apply-button {
+    background: #1d4ed8;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    }
+
+    .apply-button:hover {
+    background: #1742c3;
+}
