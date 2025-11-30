@@ -93,4 +93,4 @@ npm run dev
 ![My Requests](./screenshots/myrequests.png)
 
 ###  Manager Dashboard  
-![Manager Dashboard](./screenshots/manage-dashboard.png)
+![Manager Dashboard](./screenshots/manage_dashboard.png)
